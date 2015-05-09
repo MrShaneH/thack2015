@@ -1,6 +1,9 @@
 {
     "name": "thack2015/aggregator-service",
     "description": "An aggregator service for Dublin 2015 Hackaton",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
     "require": {
         "eloquent/enumeration": "~5.1",
 	"phpfluent/jsonserializer": "dev-master",

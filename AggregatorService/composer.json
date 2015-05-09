@@ -1,0 +1,17 @@
+{
+    "name": "thack2015/aggregator-service",
+    "description": "An aggregator service for Dublin 2015 Hackaton",
+    "require": {
+        "eloquent/enumeration": "~5.1",
+	"phpfluent/jsonserializer": "dev-master",
+	"crodas/notoj": "dev-master",
+        "silex/silex": "~1.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ciprian Alexandru Pitis",
+            "email": "orminapod3@gmail.com"
+        }
+    ]
+}

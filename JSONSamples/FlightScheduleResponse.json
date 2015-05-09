@@ -1,0 +1,41 @@
+{  "FlightSchedules": [
+    {
+      "FlightSchedule": {
+        "TotalPrice": 180,
+        "TotalTime": "1h45m",
+        "Flight": [
+          {
+            "DepartureAirportCode": "DUB",
+            "DepartureAirportName": "Dublin",
+            "DepartureAirportLongitude": "-4.000000",
+            "DepartureAirportLatitude": "-58.0000000",
+            "DepartureDate": "2015-08-23",
+            "DepartureTime": "14:50",
+            "ArrivalAirportCode": "MUN",
+            "ArrivalAirportName": "Munich",
+            "ArrivalAirportLongitude": "-8.000000",
+            "ArrivalAirportLatitude": "-62.0000000",
+            "ArrivalDate": "2015-08-23",
+            "ArrivalTime": "16:00",
+            "Carrier": "Ryanair"
+          },
+          {
+            "DepartureAirportCode": "MUN",
+            "DepartureAirportName": "Munich",
+            "DepartureAirportLongitude": "-8.000000",
+            "DepartureAirportLatitude": "-62.0000000",
+            "DepartureDate": "2015-08-24",
+            "DepartureTime": "20:00",
+            "ArrivalAirportCode": "DUB",
+            "ArrivalAirportName": "Dublin",
+            "ArrivalAirportLongitude": "-4.000000",
+            "ArrivalAirportLatitude": "-58.0000000",
+            "ArrivalDate": "2015-08-24",
+            "ArrivalTime": "22:00",
+            "Carrier": "AerLingus"
+          }
+        ]
+      }
+    }
+  ]
+}

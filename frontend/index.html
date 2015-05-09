@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" data-ng-app="eventspireApp">
+<head>
+  <script src="js/angular/angular.js"></script>
+  <script src="js/angular-route/angular-route.js"></script>
+  <script src="js/ui-bootstrap-custom-tpls-0.12.1.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/controllers.js"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/eventspire.css" />
+</head>
+<body>
+  <div class="container">
+  <h1>Search</h1>
+    <div data-ng-controller="EventSpireListCtrl">
+      
+      <form class="well form-search">
+		<label>Search:</label>
+		<input type="text" ng-model="keywords" class="input-medium search-query" placeholder="Keywords...">
+		<button type="submit" class="btn" ng-click="search()">Search</button>
+		
+    </form>
+<pre ng-model="result">
+{{result}}
+</pre>
+    </div>
+    <hr />
+    <footer class="footer">
+      
+        <p class="text-muted text-right">EventSpire - <a href="mailto:theteam@eventspi.re">theteam@eventspi.re</a></p>
+      
+    </footer>
+    </div>
+    
+  </body>
+</html>
+
+
+

@@ -1,0 +1,7 @@
+<ul class="events">
+    <li ng-repeat="event in events" class="thumbnail">
+      <a href="#/events/{{event.id}}" class="thumb"><img ng-src="{{event.imageUrl}}"></a>
+      <a href="#/events/{{event.id}}">{{event.EventName}}</a>
+      <p>{{event.category}}</p>
+    </li>
+</ul>

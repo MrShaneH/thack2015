@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JSONSamples", "JSONSamples"
 		..\JSONSamples\EventResponse.json = ..\JSONSamples\EventResponse.json
 		..\JSONSamples\FlightScheduleRequest.json = ..\JSONSamples\FlightScheduleRequest.json
 		..\JSONSamples\FlightScheduleResponse.json = ..\JSONSamples\FlightScheduleResponse.json
+		..\JSONSamples\HotelBedsRequest.json = ..\JSONSamples\HotelBedsRequest.json
 		..\JSONSamples\HotelStayRequest.json = ..\JSONSamples\HotelStayRequest.json
 		..\JSONSamples\HotelStayResponse.json = ..\JSONSamples\HotelStayResponse.json
 		..\JSONSamples\SearchRequest.json = ..\JSONSamples\SearchRequest.json
@@ -20,6 +21,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AggregatorService", "AggregatorService", "{19642598-DCE3-465E-AEEB-BE42DC069185}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "API", "API\API.xproj", "{F04B714E-74C4-4F2A-8EE0-006CC806797B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{4CF5D5E2-93AE-4CD6-871A-38D323C4F99A}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "HotelService", "HotelService\HotelService.xproj", "{73FA56AE-4521-49C4-930D-7FDDC173E3B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyHotelService", "ClassLibrary1\MyHotelService.csproj", "{C15D3A08-3204-448A-BAA1-1485281A9C7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +38,18 @@ Global
 		{F04B714E-74C4-4F2A-8EE0-006CC806797B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F04B714E-74C4-4F2A-8EE0-006CC806797B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F04B714E-74C4-4F2A-8EE0-006CC806797B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CF5D5E2-93AE-4CD6-871A-38D323C4F99A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CF5D5E2-93AE-4CD6-871A-38D323C4F99A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CF5D5E2-93AE-4CD6-871A-38D323C4F99A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CF5D5E2-93AE-4CD6-871A-38D323C4F99A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73FA56AE-4521-49C4-930D-7FDDC173E3B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73FA56AE-4521-49C4-930D-7FDDC173E3B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73FA56AE-4521-49C4-930D-7FDDC173E3B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73FA56AE-4521-49C4-930D-7FDDC173E3B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C15D3A08-3204-448A-BAA1-1485281A9C7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C15D3A08-3204-448A-BAA1-1485281A9C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C15D3A08-3204-448A-BAA1-1485281A9C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C15D3A08-3204-448A-BAA1-1485281A9C7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

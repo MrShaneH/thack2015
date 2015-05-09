@@ -1,0 +1,37 @@
+{
+    "stay": {
+        "checkIn": "2015-07-08",
+        "checkOut": "2015-07-10"
+    },
+    "occupancies": [
+        {
+            "rooms": 1,
+            "adults": 2,
+            "children": 2,
+            "paxes": [
+                {
+                    "type": "AD",
+                    "age": 30
+                },
+                {
+                    "type": "AD",
+                    "age": 30
+                },
+                {
+                    "type": "CH",
+                    "age": 8
+                },
+                {
+                    "type": "CH",
+                    "age": 8
+                }
+            ]
+        }
+    ],
+    "destination": {
+        "code": "PMI"
+    },
+    "limit": {
+        "maxHotels": 10
+    }
+}

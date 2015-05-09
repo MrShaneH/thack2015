@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net452": {
+      "wrappedProject": "../../MyHotelService.csproj",
+      "bin": {
+        "assembly": "../../obj/{configuration}/MyHotelService.dll",
+        "pdb": "../../obj/{configuration}/MyHotelService.pdb"
+      }
+    }
+  }
+}

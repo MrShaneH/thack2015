@@ -15,5 +15,9 @@
     <SchemaVersion>2.0</SchemaVersion>
     <DevelopmentServerPort>50362</DevelopmentServerPort>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\MyHotelService.csproj" />
+    <ProjectReference Include="..\HotelService\HotelService.csproj" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>

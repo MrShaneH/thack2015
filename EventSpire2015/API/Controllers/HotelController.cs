@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
+using HotelService;
 
 namespace API.Controllers
 {
@@ -11,10 +12,19 @@ namespace API.Controllers
     {
         // POST api/values
         [HttpGet]
-        public string Get(string longitude, string latitude, string radius, string startDate)
+        public JsonResult Get(string longitude, string latitude, string radius, string startDate)
         {
-            string json = System.IO.File.ReadAllText(@"C:\code\thack2015\JSONSamples\HotelStayResponse.json");
-            return json;
+            var searchRequest = new HotelSearchRequest()
+            {
+                Longitude = longitude,
+                Latitude = latitude,
+                Radius = Convert.ToInt32(radius),
+                StartDate = DateTime.Now
+            };
+            var hotelService = new HotelBedsHotelService();
+            var searchResponse = hotelService.Search(searchRequest);
+
+            return Json(searchResponse);
         }
 
     }

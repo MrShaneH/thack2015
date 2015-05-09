@@ -1,4 +1,4 @@
-﻿{
+{
   "webroot": "wwwroot",
   "version": "1.0.0-*",
 
@@ -6,7 +6,8 @@
     "Microsoft.AspNet.Mvc": "6.0.0-beta4",
     "Microsoft.AspNet.Server.IIS": "1.0.0-beta4",
     "Microsoft.AspNet.Server.WebListener": "1.0.0-beta4",
-    "Microsoft.AspNet.StaticFiles": "1.0.0-beta4"
+    "Microsoft.AspNet.StaticFiles": "1.0.0-beta4",
+            "MyHotelService": "1.0.0-*"
   },
 
   "commands": {
@@ -14,7 +15,17 @@
   },
 
   "frameworks": {
-    "dnx451": { },
+    "dnx451": {
+      "dependencies": {
+
+
+      },
+      "frameworkAssemblies": {
+        "System.Net": "4.0.0.0",
+        "System.Net.Http": "4.0.0.0",
+        "System.Net.Http.WebRequest": "4.0.0.0"
+      }
+    },
     "dnxcore50": { }
   },
 

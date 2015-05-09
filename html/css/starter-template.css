@@ -1,0 +1,64 @@
+.navbar-fixed-top{
+  background:#000000;  
+  }
+
+.alpha70 {
+    /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(0, 0, 0);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(0, 0, 0, 0.6);
+}  
+
+body{
+  background:#ffffff url(../images/bg-concert.jpg) no-repeat center top fixed;
+  font-family:Lato;
+}
+
+.starter-template{
+  padding-top:20px;
+  height:500px;
+}
+
+.navbar-brand{
+  padding-top:13px;
+}
+
+.search-header h1{
+  color:#ffffff;
+  font-size:48px;
+  text-shadow: 0px 1px 6px rgba(0,0,0, 0.5);
+  text-align:center;
+  padding-bottom: 20px;
+}
+
+.search-header{
+  padding-top:180px;
+1 }
+
+.white{background:#ffffff;}
+
+.row.large-space{
+  padding:50px 0px;
+}
+
+.row.large-space h1{padding:20px}
+
+.circular {
+	width: 300px;
+	height: 300px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	background: url(http://link-to-your/image.jpg) no-repeat;
+	}
+  
+.container.large-space{
+  padding-top:50px;
+  padding-bottom:50px;
+}
+
+
+.clearfix {
+  clear:both;
+}
+

@@ -29,6 +29,10 @@ class Deal
         $this->hotelStay = $hotelStay;
     }
 
+    public function getTotalPrice() {
+        return $this->flightSchedule->getTotalPrice() + $this->hotelStay->getPrice();
+    }
+
     public function toArray() {
         return [
             'flightSchedule' => $this->flightSchedule->toArray(),

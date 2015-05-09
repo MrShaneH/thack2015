@@ -35,6 +35,31 @@ class FlightSchedule {
         $this->totalTime = $totalTime;
     }
 
+    /**
+     * @return Flights
+     */
+    public function getFlights()
+    {
+        return $this->flights;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTotalPrice()
+    {
+        return $this->totalPrice;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTotalTime()
+    {
+        return $this->totalTime;
+    }
+
+
     public function toArray() {
         return [
             'flight' => $this->flights->toArray(),

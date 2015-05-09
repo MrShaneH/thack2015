@@ -11,11 +11,13 @@ $app->get(
     '/getDeals',
     function (\Symfony\Component\HttpFoundation\Request $request) use ($app) {
         $aggregationRequestFactory = $app['infrastructure.aggregation.aggregation_request_factory'];
+        $aggregationStrategyFactory = $app['infrastructure.aggregation.aggregation_strategy_factory'];
 
         /**
          * @var \THack2015\Infrastructure\Contexts\Aggregation\RequestConverter\AggregationRequestFactory $aggregationRequestFactory
+         * @var \THack2015\Infrastructure\Contexts\Aggregation\RequestConverter\AggregationStrategyFactory $aggregationStrategyFactory
          */
-        $aggregationRequest = $aggregationRequestFactory->create($request);
+        $aggregationRequest = $aggregationRequestFactory->create($request, $aggregationStrategyFactory->create($request));
 
         return new \Symfony\Component\HttpFoundation\JsonResponse($aggregationRequest->getBestDeals());
     }
@@ -80,10 +82,10 @@ $app->get(
         );
 
         $flightSchedules->add(
-            new \THack2015\Domain\Contexts\Aggregation\Entities\FlightSchedule($oneFlights, "3h45m", 120.00)
+            new \THack2015\Domain\Contexts\Aggregation\Entities\FlightSchedule($oneFlights, 120.00, "3h45m")
         );
         $flightSchedules->add(
-            new \THack2015\Domain\Contexts\Aggregation\Entities\FlightSchedule($directExpensive, "1h30m", 180.00)
+            new \THack2015\Domain\Contexts\Aggregation\Entities\FlightSchedule($directExpensive, 180.00, "1h30m")
         );
 
         $hotelStays->add(

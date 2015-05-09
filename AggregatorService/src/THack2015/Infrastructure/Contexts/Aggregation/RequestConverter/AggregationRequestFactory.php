@@ -17,13 +17,8 @@ use THack2015\Domain\Contexts\Aggregation\Services\AggregationStrategy;
 class AggregationRequestFactory
 {
 
-    private $aggregationStrategy;
 
-    public function __construct(AggregationStrategy $aggregationStrategy) {
-        $this->aggregationStrategy = $aggregationStrategy;
-    }
-
-    public function create(Request $request)
+    public function create(Request $request, AggregationStrategy $aggregationStrategy)
     {
 
         $flightSchedulesJson = json_decode($request->get('flightSchedules', null));
@@ -60,7 +55,7 @@ class AggregationRequestFactory
             );
         }
 
-        return new AggregationRequest($flightSchedules, $hotelStays, $this->aggregationStrategy);
+        return new AggregationRequest($flightSchedules, $hotelStays, $aggregationStrategy);
 
     }
 

@@ -5,6 +5,11 @@
   "LocationName": "Olymipic Staduim Munich",
   "Date": "2015-08-23",
   "Time": "15:30",
-  "Longitude":"-5.00000",
-  "Latitude":"64.000000"
+  "Longitude": "-5.00000",
+  "Latitude": "64.000000",
+  "EventDescription": "This is the descripton",
+  EventImages [
+    { "ImageUrl": "http://upload.wikimedia.org/wikipedia/commons/4/4b/Hacker-Pschorr_Oktoberfest_Girl.jpg" },
+    { "ImageUrl": "http://www.chicagonow.com/show-me-chicago/files/2012/08/Oktoberfest-at-Navy-Pier-e1345664493421.jpg"}
+  ]
 }

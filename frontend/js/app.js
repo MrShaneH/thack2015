@@ -12,9 +12,13 @@ eventspireApp.config(['$routeProvider', function($routeProvider) {
       }).
       when('/results/:eventId', {
         templateUrl: 'partials/result-detail.html',
-        controller: 'EventSpireListCtrl'
+        controller: 'EventSpireDetailCtrl'
       }).
+     when('/', {
+      templateUrl: 'partials/search.html',
+      controller: 'EventSpireListCtrl'
+    }).
       otherwise({
-        redirectTo: '/search'
+        redirectTo: '/'
       });
   }]);

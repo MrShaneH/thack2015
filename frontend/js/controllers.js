@@ -16,8 +16,7 @@ eventspireControllers.controller('EventSpireListCtrl', ['$scope', '$http', funct
 			$scope.data = data;
 			$scope.result = data;
 		})
-		.
-		error(function(data, status) {
+		.error(function(data, status) {
 			$scope.data = data || "Request failed";
 			$scope.status = status;			
 		});

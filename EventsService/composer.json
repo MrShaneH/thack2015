@@ -1,0 +1,23 @@
+{
+    "name": "thack2015/events-service",
+    "description": "An events service for Dublin 2015 Hackaton",
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "require": {
+	"crodas/notoj": "dev-master",
+        "silex/silex": "~1.2",
+	"lusitanian/oauth": "dev-master",
+        "guzzlehttp/guzzle": "~5.2",
+        "sabre/xml": "0.4.*",
+        "greencape/xml-converter": "~1.1",
+        "mindplay/easyxml": "~1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ciprian Alexandru Pitis",
+            "email": "orminapod3@gmail.com"
+        }
+    ]
+}

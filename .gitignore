@@ -190,3 +190,5 @@ ModelManifest.xml
 
 AggregatorService/.idea
 AggregatorService/vendor
+EventsService/.idea
+EventsService/vendor

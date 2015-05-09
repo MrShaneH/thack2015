@@ -1,0 +1,1 @@
+Query over REST endpoint will pass the event category or event id. Doesn't need to be a JSON request

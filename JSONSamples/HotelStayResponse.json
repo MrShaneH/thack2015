@@ -1,0 +1,18 @@
+{
+  "HotelStays": [
+      {
+        "HotelId":12345,
+	      "LocationName":"Munich City Center",
+	      "Longitude":"-5.10000000",
+	      "Latitude":"64.10000000",
+	      "Price":99.00
+      },
+      {
+        "HotelId":545354,
+	      "LocationName":"Manchester Slums",
+	      "Longitude":"-6.10000000",
+	      "Latitude":"66.10000000",
+	      "Price":20.00
+      }
+  ]
+}

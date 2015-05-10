@@ -139,6 +139,8 @@ $app->get(
 
                 */
 
+                syslog(5, "EVENT CREATED");
+
             } catch (\Exception $e) {
                 //In case any exception occurs, just scrap it..
                 continue;

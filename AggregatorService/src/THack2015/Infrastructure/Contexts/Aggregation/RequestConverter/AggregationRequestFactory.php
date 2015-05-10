@@ -47,10 +47,13 @@ class AggregationRequestFactory
             $hotelStays->add(
                 new HotelStay(
                     $hotelStay['HotelId'],
+                    $hotelStay['Hotel']['hotel_name'],
                     $hotelStay['LocationName'],
                     $hotelStay['Longitude'],
                     $hotelStay['Latitude'],
-                    $hotelStay['Price']
+                    $hotelStay['Price'],
+                    $hotelStay['Hotel']['images']
+
                 )
             );
         }

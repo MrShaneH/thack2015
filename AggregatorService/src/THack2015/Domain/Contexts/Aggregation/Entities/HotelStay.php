@@ -20,13 +20,19 @@ class HotelStay
 
     private $price;
 
-    public function __construct($hotelId, $locationName, $longitute, $latitude, $price)
+    private $hotelName;
+
+    private $images;
+
+    public function __construct($hotelId, $hotelName, $locationName, $longitute, $latitude, $price, $images)
     {
         $this->hotelId = $hotelId;
+        $this->hotelName = $hotelName;
         $this->locationName = $locationName;
         $this->longitude = $longitute;
         $this->latitude = $latitude;
         $this->price = $price;
+        $this->images = $images;
     }
 
     /**
@@ -73,10 +79,12 @@ class HotelStay
     {
         return [
             'hotelId' => $this->hotelId,
+            'hotelName' => $this->hotelName,
             'locationName' => $this->locationName,
             'longitude' => $this->longitude,
             'latitude' => $this->latitude,
-            'price' => $this->price
+            'price' => $this->price,
+            'images' => $this->images
         ];
     }
 }

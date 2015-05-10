@@ -31,6 +31,7 @@ $app->get(
         if (!$events) {
             throw new \Symfony\Component\HttpKernel\Exception\ServiceUnavailableHttpException;
         }
+
         $pdo = new \PDO("sqlite:../airports");
 
         $deals = [];
@@ -85,7 +86,7 @@ $app->get(
                 $eventData = [
                     "id" => $event->eventId,
                     "date" => $event->date,
-                    "name" => $event->locationName,
+                    "name" => $event->eventName,
                     "latitude" => $event->latitude,
                     "longitude" => $event->longitude,
                 ];
@@ -152,7 +153,7 @@ $app->get(
         }
 
 
-        return new \Symfony\Component\HttpFoundation\JsonResponse(json_encode($deals));
+        return new \Symfony\Component\HttpFoundation\JsonResponse($deals);
     }
 );
 

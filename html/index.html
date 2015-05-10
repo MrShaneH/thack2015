@@ -17,7 +17,11 @@
 
     <!-- Custom styles for this template -->
     <link href="css/starter-template.css" rel="stylesheet">
-    
+    <script src="js/angular/angular.js"></script>
+    <script src="js/angular-route/angular-route.js"></script>
+    <script src="js/ui-bootstrap-custom-tpls-0.12.1.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -30,7 +34,8 @@
     <![endif]-->
   </head>
 
-  <body class="homepage">
+
+  <body data-ng-app="eventspireApp" data-ng-class="$searchResultsClass ? 'gray-bg' : 'homepage'">>
 
     <nav class="navbar navbar-inverse navbar-fixed-top alpha70">
       <div class="container">
@@ -46,16 +51,7 @@
       <div class="starter-template">
         <div class="search-header">
           <h1>What do you love?</h1>
-          <div class="row">
-            <div class="col-lg-6 col-lg-offset-3">
-              <div class="input-group">
-                <input type="text" class="form-control input-lg" placeholder="ie. FC Barcelona, One Direction, Hackathon">
-                <span class="input-group-btn">
-                  <button class="btn btn-danger btn-lg" type="button">Go!</button>
-                </span>
-              </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-          </div><!-- /.row -->
+          <div data-ng-view></div>    
         </div>>
       </div>
     </div><!-- /.container -->

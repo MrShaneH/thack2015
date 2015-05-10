@@ -1,0 +1,18 @@
+<div class="row" >
+	<div class="col-lg-6 col-lg-offset-3">
+	  <div class="input-group">
+	  <input type="text" ng-model="keywords" class="form-control input-lg" placeholder="e.g. FC Barcelona, One Direction, Hackathon">
+		<span class="input-group-btn">
+			<button type="submit" class="btn btn-danger btn-lg" ng-click="search()">Go!</button>
+		</span>
+		
+	  </div><!-- /input-group -->
+	</div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+          <ul class="events" data-ng-model="result">
+            <li ng-repeat="event in result" class="thumbnail">
+              <a href="#/events/{{event.id}}" class="thumb"><img ng-src="{{event.imageUrl}}"></a>
+              <a href="#/events/{{event.id}}">{{event.EventName}}</a>
+              <p>{{event.category}}</p>
+            </li>
+        </ul>

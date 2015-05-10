@@ -46,6 +46,7 @@ $app->get(
                 $flightApi = "http://" . $app['infrastructure.search.flights_api_domain'] . "/getFlights/". $longitude . "/" . $latitude . "/" . $dateArrival . "/" . $event->longitude."/".$event->latitude;
                 $data = json_decode($client->get($flightApi)->getBody());
 
+
                 //No flights?
                 if (count($data) == 0) {
                     continue;
@@ -143,6 +144,10 @@ $app->get(
                 continue;
             }
         }
+
+        uasort($deals, function($one,$another) {
+            return (($one->flightSchedule->totalPrice + $one->hotelStay->price) < ($another->flightSchedule->totalPrice + $another->hotelStay->price)) ? -1 : 1;
+        });
 
 
         return new \Symfony\Component\HttpFoundation\JsonResponse($deals);

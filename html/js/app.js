@@ -2,7 +2,7 @@
 
 /* App Module */
 
-var eventspireApp = angular.module('eventspireApp', ['ngRoute','eventspireControllers', 'ui.bootstrap']);
+var eventspireApp = angular.module('eventspireApp', ['ngRoute','eventspireControllers', 'ui.bootstrap', 'ngMap']);
 
 eventspireApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider.

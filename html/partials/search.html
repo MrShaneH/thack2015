@@ -1,18 +1,88 @@
-<div class="row" >
+<div class="row" ng-hide="data" >
 	<div class="col-lg-6 col-lg-offset-3">
 	  <div class="input-group">
 	  <input type="text" ng-model="keywords" class="form-control input-lg" placeholder="e.g. FC Barcelona, One Direction, Hackathon">
+	  
 		<span class="input-group-btn">
-			<button type="submit" class="btn btn-danger btn-lg" ng-click="search()">Go!</button>
+			<button type="submit" ng-model="keywords" class="btn btn-danger btn-lg" ng-click="search()">Go!</button>
 		</span>
 		
 	  </div><!-- /input-group -->
 	</div><!-- /.col-lg-6 -->
 </div><!-- /.row -->
-          <ul class="events" data-ng-model="result">
-            <li ng-repeat="event in result" class="thumbnail">
-              <a href="#/events/{{event.id}}" class="thumb"><img ng-src="{{event.imageUrl}}"></a>
-              <a href="#/events/{{event.id}}">{{event.EventName}}</a>
-              <p>{{event.category}}</p>
-            </li>
-        </ul>
+
+        <section class="result-box col-lg-12" data-ng-repeat="trip in data">
+                 <div class="row">
+                     <div class="col-md-4 hotel-container">
+                         <div class="image-container">
+                             <img height="220px" src="{{trip.event.images[0]}}" alt="" />
+                         </div>
+                         <div class="hotel-description alpha80 black-bg">
+                             <h2>{{trip.event.name}}</h2>
+                            
+                         </div>
+                     </div>
+                     <div class="col-md-4 hotel-container no-left-padding">
+                         <div class="image-container">
+                            <img src="{{trip.hotelStay.images[0]}}" height="220px" alt="" />
+                        </div>
+                         <div class="hotel-description alpha80 black-bg">
+                             <h2>{{trip.hotelStay.hotelName | limitTo :12}}</h2>
+                             <span class="star"></span>
+                             <span class="star"></span>
+                             <span class="star"></span>
+                             <span class="price-md">&euro; {{ (trip.hotelStay.price * 1 )  +  (trip.flightSchedule.totalPrice * 1) | limitTo :6 }}</span>
+                         </div>
+                     </div>
+                     <div class="col-md-4 no-left-padding">
+                         <map center="52, -8" zoom="2" class="ngmap" styles='{{mapStyles}}' >             
+							<marker position="{{getGeoCode(trip.event.latitude, trip.event.longitude)}}" ></marker>  
+							<marker position="{{getGeoCode(trip.hotelStay.latitude, trip.hotelStay.longitude)}}" ></marker>     
+						</map>
+                     </div>
+                 </div>     
+                 <div class="flights-summarry alpha70 black-bg">
+                     <p>
+                         <span class="highlight-text">
+                             <strong>Flight  </strong>
+                         </span> 
+                         <img src="images/plane1.png" alt="departue" />
+                         <strong>{{trip.flightSchedule.flight[0].departureAirportName}}</strong> 
+                            <span>{{trip.flightSchedule.flight[0].departureTime | limitTo :16}} to {{trip.flightSchedule.flight[0].arrivalTime | limitTo :16}}</span>
+                         <span class="highlight-text">
+                             <strong>to</strong>
+                         </span>
+                          <img src="images/plane2.png" alt="arrival" />
+                         <strong>{{trip.flightSchedule.flight[0].arrivalAirportName}}</strong>
+                         <span></span> 
+                         <span>|</span>
+                         <span class="highlight-text">
+                             <strong>Return</strong>
+                         </span> 
+                         <img src="images/plane1.png" alt="departue" />
+                         <strong>{{trip.flightSchedule.flight[1].departureAirportName}}</strong> 
+                            <span> {{trip.flightSchedule.flight[1].departureTime | limitTo :16}} to {{trip.flightSchedule.flight[1].arrivalTime | limitTo :16}} </span>
+                         <span class="highlight-text">
+                             <strong>to</strong>
+                         </span>
+                         <img src="images/plane2.png" alt="arrival" />
+                         <strong>{{trip.flightSchedule.flight[1].arrivalAirportName}}</strong>
+                         <span></span> 
+                 </div>    
+                 <div class="row">                                          
+                     <div class="col-md-12">
+                         <div class="summarry">
+                             
+                             <div class="col-md-2">
+                                 <p>Hotel total: <strong>&euro; {{trip.hotelStay.price}}</strong></p>
+                             </div>
+                             <div class="col-md-2">
+                                  <p>Flights total: <strong>&euro; {{trip.flightSchedule.totalPrice}}</strong></p>
+                             </div>
+                             <div class="col-md-6 small-padding-right">
+                                <button class="btn btn-danger btn-md pull-right" type="button">Book now</button>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </section>

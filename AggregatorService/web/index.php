@@ -7,7 +7,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
  */
 $app = include(__DIR__ . '/../app/container.php');
 
-$app->get(
+$app->post(
     '/getDeals',
     function (\Symfony\Component\HttpFoundation\Request $request) use ($app) {
         $aggregationRequestFactory = $app['infrastructure.aggregation.aggregation_request_factory'];

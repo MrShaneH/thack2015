@@ -7,7 +7,7 @@
         {
             "rooms": 1,
             "adults": 2,
-            "children": 2,
+            "children": 0,
             "paxes": [
                 {
                     "type": "AD",
@@ -16,22 +16,17 @@
                 {
                     "type": "AD",
                     "age": 30
-                },
-                {
-                    "type": "CH",
-                    "age": 8
-                },
-                {
-                    "type": "CH",
-                    "age": 8
                 }
             ]
         }
     ],
-    "destination": {
-        "code": "PMI"
+    "geolocation": {
+        "latitude": "53.348365318468446",
+        "longitude": "-6.258545145392418",
+        "radius": 20,
+        "unit": "km"
     },
     "limit": {
-        "maxHotels": 10
+        "maxHotels": 100
     }
 }

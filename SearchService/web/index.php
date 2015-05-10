@@ -79,7 +79,22 @@ $app->get(
 
 
                 $aggregatedDeals = $client->post($aggregatorApi,['body' => $postData]);
-                $deals = array_merge($deals,json_decode($aggregatedDeals->getBody()->getContents()));
+
+                $dealsPart = json_decode($aggregatedDeals->getBody()->getContents());
+
+                $eventData = [
+                    "id" => $event->eventId,
+                    "date" => $event->date,
+                    "name" => $event->locationName,
+                    "latitude" => $event->latitude,
+                    "longitude" => $event->longitude,
+                ];
+
+                foreach($dealsPart as $k => $aggregatedDeal) {
+                    $dealsPart[$k]->event = $eventData;
+                }
+
+                $deals = array_merge($deals,$dealsPart);
 
                 /*
                 //We map them to dates and aggregate queries.

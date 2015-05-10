@@ -4,17 +4,18 @@
 
 var eventspireControllers = angular.module('eventspireControllers', []);
 
-eventspireControllers.controller('EventSpireListCtrl', ['$scope', '$http', function($scope, $http){
+eventspireControllers.controller('EventSpireListCtrl', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http){
     
     $scope.url = 'SearchResponse.json';
-
+	$rootScope.bodyClass = 'homepage';
+	console.log("body is " + $scope.bodyClass);
     $scope.search = function() {
 		
 		$http.get($scope.url, { "data" : $scope.keywords}).
 		success(function(data, status) {
 			$scope.status = status;
 			$scope.data = data;
-			$scope.searchResultsClass = true;
+			$rootScope.bodyClass = 'gray-bg';
 			$scope.result = data.Deals;
 			console.log(data);
 		})

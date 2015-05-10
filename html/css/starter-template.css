@@ -46,6 +46,10 @@ body {
   padding-top:180px;
 1 }
 
+.short-header {
+	padding-top:30px !important;
+}
+
 .white{background:#ffffff;}
 
 .row.large-space{

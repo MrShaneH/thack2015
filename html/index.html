@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ng-app="eventspireApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,7 +35,7 @@
   </head>
 
 
-  <body data-ng-app="eventspireApp" data-ng-class="$searchResultsClass ? 'gray-bg' : 'homepage'">>
+  <body data-ng-class="bodyClass">
 
     <nav class="navbar navbar-inverse navbar-fixed-top alpha70">
       <div class="container">
@@ -49,7 +49,7 @@
     <div class="container">
 
       <div class="starter-template">
-        <div class="search-header">
+        <div class="search-header" data-ng-class="{short-header: bodyClass=='gray-bg'}" >
           <h1>What do you love?</h1>
           <div data-ng-view></div>    
         </div>>

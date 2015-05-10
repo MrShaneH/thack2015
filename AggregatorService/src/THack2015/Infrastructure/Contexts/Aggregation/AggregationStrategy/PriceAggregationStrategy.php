@@ -30,6 +30,7 @@ class PriceAggregationStrategy implements AggregationStrategy
         $if = $flightSchedules->getIterator();
         $ih = $hotelStays->getIterator();
 
+
         $deals = new Deals();
         for ($f = 0; $f < $if->count(); ++$f) {
             for ($h = 0; $h < $ih->count(); ++$h) {

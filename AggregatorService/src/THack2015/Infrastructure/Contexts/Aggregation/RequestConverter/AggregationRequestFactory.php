@@ -21,8 +21,8 @@ class AggregationRequestFactory
     public function create(Request $request, AggregationStrategy $aggregationStrategy)
     {
 
-        $flightSchedulesJson = json_decode($request->get('flightSchedules', null));
-        $hotelStaysJson = json_decode($request->get('hotelStays', null));
+        $flightSchedulesJson = json_decode($request->get('flightSchedules', null), true);
+        $hotelStaysJson = json_decode($request->get('hotelStays', null), true);
 
         if (!$flightSchedulesJson || !$hotelStaysJson) {
             throw new BadRequestHttpException("Invalid FlightSchedules and/or HotelStays.");
@@ -46,14 +46,15 @@ class AggregationRequestFactory
         foreach($hotelStaysJson as $hotelStay) {
             $hotelStays->add(
                 new HotelStay(
-                    $hotelStay['hotelId'],
-                    $hotelStay['locationName'],
-                    $hotelStay['longitude'],
-                    $hotelStay['latitude'],
-                    $hotelStay['price']
+                    $hotelStay['HotelId'],
+                    $hotelStay['LocationName'],
+                    $hotelStay['Longitude'],
+                    $hotelStay['Latitude'],
+                    $hotelStay['Price']
                 )
             );
         }
+
 
         return new AggregationRequest($flightSchedules, $hotelStays, $aggregationStrategy);
 

@@ -43,6 +43,7 @@ class AggregationRequest
 
     public function getBestDeals()
     {
+
         return $this->aggregationStrategy->getBestDeals($this->flightSchedules, $this->hotelStays);
     }
 }

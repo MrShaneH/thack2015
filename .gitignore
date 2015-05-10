@@ -194,3 +194,5 @@ EventsService/.idea
 EventsService/vendor
 FlightsService/.idea
 FlightsService/vendor
+SearchService/.idea
+SearchService/vendor

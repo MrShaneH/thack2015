@@ -19,7 +19,8 @@ $app->post(
          */
         $aggregationRequest = $aggregationRequestFactory->create($request, $aggregationStrategyFactory->create($request));
 
-        return new \Symfony\Component\HttpFoundation\JsonResponse($aggregationRequest->getBestDeals());
+        $bestDeals = $aggregationRequest->getBestDeals();
+        return new \Symfony\Component\HttpFoundation\JsonResponse($bestDeals->toArray());
     }
 );
 

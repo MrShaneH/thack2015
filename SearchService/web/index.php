@@ -20,8 +20,13 @@ $app->get(
         }
 
         $client = new \GuzzleHttp\Client();
-        $eventsApi = "http://" . $app['infrastructure.search.events_api_domain'] . "/getEvents/" . $event;
-        $events = json_decode($client->get($eventsApi)->getBody());
+
+        try {
+            $eventsApi = "http://" . $app['infrastructure.search.events_api_domain'] . "/getEvents/" . $event;
+            $events = json_decode($client->get($eventsApi)->getBody());
+        } catch (\Exception $e) {
+            throw new \Symfony\Component\HttpKernel\Exception\ServiceUnavailableHttpException;
+        }
 
         if (!$events) {
             throw new \Symfony\Component\HttpKernel\Exception\ServiceUnavailableHttpException;

@@ -8,7 +8,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $app = include(__DIR__ . '/../app/container.php');
 
 $app->get(
-    '/getFlights/{longitude}/{latitude}/{arrivalTime}/{destinationAirport}',
+    '/getFlights/{longitude}/{latitude}/{arrivalTime}/{destinationLongitude}/{destinationLatitude}',
     function (\Symfony\Component\HttpFoundation\Request $request) use ($app) {
 
         /**
@@ -18,13 +18,17 @@ $app->get(
         $longitude = $request->get('longitude', null);
         $latitude = $request->get('latitude', null);
         $arrivalTime = $request->get('arrivalTime', null);
-        $destinationAirport = $request->get('destinationAirport', null);
+        $destinationLongitude = $request->get('destinationLongitude', null);
+        $destinationLatitude = $request->get('destinationLatitude', null);
 
-        if(!$longitude || !$latitude || !$destinationAirport || !$arrivalTime) {
+
+
+        if(!$longitude || !$latitude  || !$arrivalTime || !$destinationLongitude || !$destinationLatitude) {
             throw new \Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
         }
+
         $arrivalTime = new \DateTime($arrivalTime);
-        $flights = $flightsRepository->findForPointAndTime($longitude, $latitude, $arrivalTime, $destinationAirport);
+        $flights = $flightsRepository->findForPointAndTime($longitude, $latitude, $arrivalTime, $destinationLongitude, $destinationLatitude);
 
         return new \Symfony\Component\HttpFoundation\JsonResponse($flights->toArray());
     }

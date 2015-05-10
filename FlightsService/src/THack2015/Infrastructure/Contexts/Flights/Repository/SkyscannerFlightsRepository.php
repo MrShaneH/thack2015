@@ -45,15 +45,8 @@ class SkyscannerFlightsRepository implements FlightsRepository
         );
     }
 
-    public function findForPointAndTime($longitude, $latitude, \DateTime $arrivalTime, $destinationAirport)
+    public function findForPointAndTime($longitude, $latitude, \DateTime $arrivalTime, $destinationLongitude, $destinationLatitude)
     {
-
-        $inboundData = $this->pdo->query(
-            "SELECT * FROM airports ORDER BY distance(latitude,longitude," . $latitude . "," . $longitude . ") ASC LIMIT 1"
-        );
-
-        $airports = $inboundData->fetchAll();
-        $airport = current($airports);
 
         $arrivalTimeOneDayBefore = $arrivalTime->setTimestamp($arrivalTime->getTimestamp() - 3600 * 24);
         $arrivalTimeTwoDaysAfter = $arrivalTime->setTimestamp($arrivalTime->getTimestamp() + 3600 * 48);
@@ -66,14 +59,18 @@ class SkyscannerFlightsRepository implements FlightsRepository
             'country' => 'IR',
             'currency' => 'EUR',
             'locale' => 'en-GB',
-            'originplace' => $airport['id'] . '-Iata',
-            'destinationplace' => $destinationAirport . '-Iata',
+            'originplace' => $latitude.','.$longitude.'-Latlong',
+            'destinationplace' => $destinationLatitude.','.$destinationLongitude.'-Latlong',
             'outbounddate' => $arrivalTimeOneDayBefore->format("Y-m-d"),
             'inbounddate' => $arrivalTimeTwoDaysAfter->format("Y-m-d")
 
         ];
 
-        $polledRequest = $this->client->post($apiUrl, ['body' => $creationData]);
+        try {
+            $polledRequest = $this->client->post($apiUrl, ['body' => $creationData]);
+        } catch(\Exception $e) {
+            throw new ServiceUnavailableHttpException;
+        }
 
         if ($polledRequest->getStatusCode() != 201) {
             throw new ServiceUnavailableHttpException; //Unavailable

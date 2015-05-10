@@ -32,27 +32,18 @@ $app->get(
             throw new \Symfony\Component\HttpKernel\Exception\ServiceUnavailableHttpException;
         }
 
+
         $pdo = new \PDO("sqlite:../airports");
 
         $deals = [];
 
         foreach ($events as $event) {
 
+
             try {
-                $locationName = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $event->locationName);
-
-                $cities = $pdo->query("SELECT * from airports WHERE city = " . $pdo->quote($locationName))->fetchAll();
-
-                if (count($cities) == 0) {
-                    continue;
-                }
-
-                //Just take the first city.
-                $city = current($cities);
                 $dateArrival = date("Y-m-d", strtotime($event->date));
 
-                $flightApi = "http://" . $app['infrastructure.search.flights_api_domain'] . "/getFlights/" . $longitude . "/" . $latitude . "/" . $dateArrival . "/" . $city['id'];
-
+                $flightApi = "http://" . $app['infrastructure.search.flights_api_domain'] . "/getFlights/". $longitude . "/" . $latitude . "/" . $dateArrival . "/" . $event->longitude."/".$event->latitude;
                 $data = json_decode($client->get($flightApi)->getBody());
 
                 //No flights?
@@ -89,6 +80,7 @@ $app->get(
                     "name" => $event->eventName,
                     "latitude" => $event->latitude,
                     "longitude" => $event->longitude,
+                    "images" => $event->eventImages
                 ];
 
                 foreach($dealsPart as $k => $aggregatedDeal) {

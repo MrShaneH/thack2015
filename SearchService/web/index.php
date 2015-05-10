@@ -150,7 +150,7 @@ $app->get(
         });
 
 
-        return new \Symfony\Component\HttpFoundation\JsonResponse($deals);
+        return new \Symfony\Component\HttpFoundation\JsonResponse(array_values($deals));
     }
 );
 

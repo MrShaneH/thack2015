@@ -84,10 +84,11 @@ class SkyscannerFlightsRepository implements FlightsRepository
         sleep(1); //Sleep one second.. perhaps we will implement more?
 
         $data = json_decode(file_get_contents($pollingUrl));
-
         $flightSchedules = new FlightSchedules();
-        $this->populateFlightSchedules($flightSchedules, $data);
 
+        if (count($data->Itineraries) > 0) {
+            $this->populateFlightSchedules($flightSchedules, $data);
+        }
         return $flightSchedules;
     }
 
@@ -169,7 +170,6 @@ class SkyscannerFlightsRepository implements FlightsRepository
 
                 $dates[] = $segments[$segmentId]->getDepartureTime()->getTimestamp();
                 $dates[] = $segments[$segmentId]->getArrivalTime()->getTimestamp();
-
             }
 
             foreach ($legs[$itinerary->InboundLegId]->SegmentIds as $segmentId) {
@@ -180,7 +180,6 @@ class SkyscannerFlightsRepository implements FlightsRepository
 
                 $dates[] = $segments[$segmentId]->getDepartureTime()->getTimestamp();
                 $dates[] = $segments[$segmentId]->getArrivalTime()->getTimestamp();
-
             }
 
             sort($dates);
@@ -192,13 +191,9 @@ class SkyscannerFlightsRepository implements FlightsRepository
             $totalTime -= $h * 3600;
             $m = floor($totalTime / 60);
 
-            $string = $d."d".$h."h".$m."m";
-
+            $string = $d . "d" . $h . "h" . $m . "m";
 
             $flightSchedules->add(new FlightSchedule($flights, $itinerary->PricingOptions[0]->Price, $totalTime));
-
         }
-
-
     }
 }
